@@ -1,0 +1,54 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tbrunier <tbrunier@student.42perpignan.fr> +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/09/25 16:14:24 by tbrunier          #+#    #+#              #
+#    Updated: 2024/09/25 17:41:26 by tbrunier         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+################################################################################
+## VARIABLES
+
+NAME = philo
+
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror #-g -O0#valgrind_debug_flags
+
+INCLUDE		= include/
+SRC_PATH	= src/
+OBJ_PATH	= obj/
+
+################################################################################
+## SOURCES
+
+SRC_FILES	=	init.c main.c utils.c
+SRCS		=	$(addprefix $(SRC_PATH),$(SRC_FILES))
+OBJS		=	$(addprefix $(OBJ_PATH),$(SRC_FILES:.c=.o))
+
+################################################################################
+## RULES
+
+all: libft $(NAME)
+
+$(NAME): $(OBJS) $(LIBFT_LIB)
+	$(CC) $(CFLAGS) -o $@ $(OBJS)
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c | $(OBJ_PATH)
+	$(CC) $(CFLAGS) -I$(INCLUDE) -c $< -o $@
+
+$(OBJ_PATH):
+	mkdir -p $(OBJ_PATH)
+
+clean:
+	rm -rf $(OBJ_PATH)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
