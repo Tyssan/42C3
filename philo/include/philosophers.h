@@ -6,7 +6,7 @@
 /*   By: tbrunier <tbrunier@student.42perpignan.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:05:32 by tbrunier          #+#    #+#             */
-/*   Updated: 2024/09/25 17:56:22 by tbrunier         ###   ########.fr       */
+/*   Updated: 2024/10/04 20:24:24 by tbrunier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,17 @@ typedef struct s_state
 
 typedef struct s_data
 {
-	int				lst_size;
-	int				ttdie;
-	int				ttsleep;
-	int				tteat;
+	long			lst_size;
+	long			ttdie;
+	long			ttsleep;
+	long			tteat;
+	long			food_goal;
 	t_state			state;
 }					t_data;
 
 typedef struct s_philo
 {
-	int				philo_id;
+	long			philo_id;
 	int				alive;
 	pthread_t		thread;
 	pthread_mutex_t	mutex_fork;
@@ -64,12 +65,12 @@ typedef struct s_philo
 bool			ft_philo_init(t_data *data, t_philo **philolist);
 bool			ft_data_init(t_data *data, t_philo **philolist, char **args);
 
-/*main.c*/
-void			ft_free(t_data **data, t_philo *philolist);
-void			ft_args_error();
+/*stop.c*/
+void			ft_free(t_data *data, t_philo *philolist);
+void			ft_error_exit(char *error);
 
 /*utils.c*/
-int				ft_atoi(char *n);
+long			ft_atol(char *n);
 int				ft_list_size(t_philo *list);
 
 #endif
