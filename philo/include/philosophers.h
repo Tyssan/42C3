@@ -6,7 +6,7 @@
 /*   By: tbrunier <tbrunier@student.42perpignan.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:05:32 by tbrunier          #+#    #+#             */
-/*   Updated: 2024/10/04 20:24:24 by tbrunier         ###   ########.fr       */
+/*   Updated: 2025/01/26 16:45:20 by tbrunier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_state
 
 typedef struct s_data
 {
+	long			start_time;
 	long			lst_size;
 	long			ttdie;
 	long			ttsleep;
@@ -63,14 +64,13 @@ typedef struct s_philo
 
 /*init.c*/
 bool			ft_philo_init(t_data *data, t_philo **philolist);
-bool			ft_data_init(t_data *data, t_philo **philolist, char **args);
+bool			ft_data_init(t_data *data, char **args);
 
 /*stop.c*/
 void			ft_free(t_data *data, t_philo *philolist);
-void			ft_error_exit(char *error);
+void			ft_error_exit(char *error, bool usage);
 
 /*utils.c*/
 long			ft_atol(char *n);
-int				ft_list_size(t_philo *list);
 
 #endif
