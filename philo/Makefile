@@ -6,7 +6,7 @@
 #    By: tbrunier <tbrunier@student.42perpignan.fr> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 16:26:33 by tbrunier          #+#    #+#              #
-#    Updated: 2025/05/08 02:24:28 by tbrunier         ###   ########.fr        #
+#    Updated: 2025/05/08 22:02:27 by tbrunier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 NAME = philo
 
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror -pthread -g -O0#valgrind_debug_flags
+CFLAGS		= -Wall -Wextra -Werror -pthread #-g -O0#valgrind_debug_flags
 
 INCLUDE		= include/
 SRC_PATH	= src/
