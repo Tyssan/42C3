@@ -1,6 +1,8 @@
 # 42C3
 Cursus 42 Circle 3
 -
-philosophers: WIP
+```
+minishell:	        100/100 MANDATORY=OK BONUS=NULL
 
-minishell: TODO
+philosophers:		WIP/100 MANDATORY=WIP BONUS=NULL
+```
