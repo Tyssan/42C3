@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tbrunier <tbrunier@student.42perpignan.fr> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/25 16:14:24 by tbrunier          #+#    #+#              #
-#    Updated: 2024/10/04 20:46:06 by tbrunier         ###   ########.fr        #
+#    Created: 2025/01/28 16:26:33 by tbrunier          #+#    #+#              #
+#    Updated: 2025/05/08 02:24:28 by tbrunier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 NAME = philo
 
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror -pthread #-g -O0#valgrind_debug_flags
+CFLAGS		= -Wall -Wextra -Werror -pthread -g -O0#valgrind_debug_flags
 
 INCLUDE		= include/
 SRC_PATH	= src/
@@ -25,16 +25,16 @@ OBJ_PATH	= obj/
 ################################################################################
 ## SOURCES
 
-SRC_FILES	=	init.c main.c stop.c utils.c
+SRC_FILES	=	init.c main.c monitor.c philo.c stop.c utils.c
 SRCS		=	$(addprefix $(SRC_PATH),$(SRC_FILES))
 OBJS		=	$(addprefix $(OBJ_PATH),$(SRC_FILES:.c=.o))
 
 ################################################################################
 ## RULES
 
-all: libft $(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT_LIB)
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $(OBJS)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c | $(OBJ_PATH)
